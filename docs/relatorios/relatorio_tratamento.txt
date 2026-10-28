@@ -1,0 +1,159 @@
+RELATÓRIO DE TRATAMENTO · CAMADA PRATA
+Projeto Final · Performance de Ações da B3 (2021 a 2023)
+
+======================================================================
+0. ENTRADA · camada Bronze
+======================================================================
+Linhas lidas: 8940
+Colunas: ['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume', 'Dividends', 'Stock Splits', 'ticker', 'simbolo_yahoo', 'data_extracao']
+
+======================================================================
+1. ENCODING E CAMPOS DE TEXTO
+======================================================================
+Arquivo lido e gravado em UTF-8.
+Valores de texto com caracteres corrompidos: 0
+Campos de texto padronizados: sem espaços nas pontas e em caixa alta.
+
+======================================================================
+2. PADRONIZAÇÃO DOS NOMES DE COLUNAS
+======================================================================
+Date            -> dt_pregao
+ticker          -> cd_ticker
+simbolo_yahoo   -> cd_simbolo_yahoo
+Open            -> vl_abertura
+High            -> vl_maxima
+Low             -> vl_minima
+Close           -> vl_fechamento
+Adj Close       -> vl_fechamento_ajustado
+Volume          -> qt_volume_acoes
+Dividends       -> vl_dividendos
+Stock Splits    -> vl_fator_desdobramento
+data_extracao   -> dt_extracao
+
+======================================================================
+3. PADRONIZAÇÃO DE DATAS
+======================================================================
+Datas que não puderam ser convertidas: 0
+Exemplo antes:  2021-01-04 00:00:00-03:00
+Exemplo depois: 2021-01-04
+
+======================================================================
+4. CONFERÊNCIA DO PERÍODO ANALISADO
+======================================================================
+Período analisado: 2021-01-01 a 2023-12-31
+Primeiro pregão: 2021-01-04 | Último pregão: 2023-12-28
+Linhas fora do período: 0
+
+======================================================================
+5. CONVERSÃO DE TIPOS NUMÉRICOS
+======================================================================
+vl_abertura               valores não numéricos encontrados: 0
+vl_maxima                 valores não numéricos encontrados: 0
+vl_minima                 valores não numéricos encontrados: 0
+vl_fechamento             valores não numéricos encontrados: 0
+vl_fechamento_ajustado    valores não numéricos encontrados: 0
+qt_volume_acoes           valores não numéricos encontrados: 0
+vl_dividendos             valores não numéricos encontrados: 0
+vl_fator_desdobramento    valores não numéricos encontrados: 0
+
+======================================================================
+6. VALORES NULOS
+======================================================================
+dt_pregao                 0
+vl_abertura               0
+vl_maxima                 0
+vl_minima                 0
+vl_fechamento             0
+vl_fechamento_ajustado    0
+qt_volume_acoes           0
+vl_dividendos             0
+vl_fator_desdobramento    0
+cd_ticker                 0
+cd_simbolo_yahoo          0
+dt_extracao               0
+Linhas sem fechamento ajustado (inutilizáveis nos cálculos): 0
+Decisão: nenhum valor é preenchido artificialmente (sem média nem repetição).
+
+======================================================================
+7. DUPLICADOS
+======================================================================
+Repetições da chave ativo + data: 0
+
+======================================================================
+8. PREÇOS MENORES OU IGUAIS A ZERO
+======================================================================
+Linhas com algum preço <= 0: 0
+
+======================================================================
+9. CONSISTÊNCIA ENTRE MÁXIMA, MÍNIMA, ABERTURA E FECHAMENTO
+======================================================================
+Linhas incoerentes: 0
+
+======================================================================
+10. SINALIZAÇÕES (os dados são mantidos, só marcados)
+======================================================================
+fg_volume_zero = 1 em 3 linhas:
+cd_ticker  dt_pregao  vl_abertura  vl_maxima  vl_minima  vl_fechamento
+    BBDC4 2023-06-02    15.780000  15.780000  15.780000      15.780000
+    PRIO3 2022-09-26    28.120001  28.120001  28.120001      28.120001
+    WEGE3 2022-09-26    30.570000  30.570000  30.570000      30.570000
+Leitura: são ações líquidas, as demais negociaram normalmente nesses dias e os
+quatro preços repetem o fechamento anterior. Indício de falha de registro na fonte.
+Decisão: manter (preservar o dado real) e documentar como limitação.
+
+fg_variacao_extrema = 1 (|variação diária| > 15%) em 6 linhas:
+cd_ticker  dt_pregao  variacao_%
+    BBDC4 2022-11-09      -17.38
+    EMBR3 2021-06-10       15.61
+    EMBR3 2021-12-21       16.02
+    ITUB4 2021-10-04      -17.96
+    PETR4 2021-02-22      -20.71
+    PRIO3 2021-11-05       17.87
+Decisão: manter. Movimentos fortes fazem parte do risco que o projeto mede (P3 e P4).
+
+======================================================================
+11. COLUNAS DERIVADAS
+======================================================================
+nm_empresa e ds_setor: a partir de src/config.py
+vl_volume_financeiro = vl_fechamento x qt_volume_acoes (estimativa em R$)
+
+======================================================================
+12. VALIDAÇÃO FINAL
+======================================================================
+           pregoes    primeiro      ultimo                            setor
+cd_ticker                                                                  
+ABEV3          745  2021-01-04  2023-12-28              Consumo não Cíclico
+BBDC4          745  2021-01-04  2023-12-28                       Financeiro
+EGIE3          745  2021-01-04  2023-12-28                Utilidade Pública
+EMBR3          745  2021-01-04  2023-12-28                 Bens Industriais
+GGBR4          745  2021-01-04  2023-12-28                Materiais Básicos
+ITUB4          745  2021-01-04  2023-12-28                       Financeiro
+KLBN11         745  2021-01-04  2023-12-28                Materiais Básicos
+PETR4          745  2021-01-04  2023-12-28  Petróleo, Gás e Biocombustíveis
+PRIO3          745  2021-01-04  2023-12-28  Petróleo, Gás e Biocombustíveis
+RENT3          745  2021-01-04  2023-12-28                  Consumo Cíclico
+VALE3          745  2021-01-04  2023-12-28                Materiais Básicos
+WEGE3          745  2021-01-04  2023-12-28                 Bens Industriais
+
+Linhas na Bronze: 8940 | Linhas na Prata: 8940 | Perda: 0
+
+Tipos finais:
+dt_pregao                 datetime64[us]
+cd_ticker                            str
+nm_empresa                           str
+ds_setor                             str
+vl_abertura                      float64
+vl_maxima                        float64
+vl_minima                        float64
+vl_fechamento                    float64
+vl_fechamento_ajustado           float64
+qt_volume_acoes                    Int64
+vl_volume_financeiro             Float64
+vl_dividendos                    float64
+vl_fator_desdobramento           float64
+fg_volume_zero                     int64
+fg_variacao_extrema                int64
+cd_simbolo_yahoo                     str
+dt_extracao               datetime64[us]
+
+Arquivo gravado: data\prata\cotacoes_tratadas.csv
