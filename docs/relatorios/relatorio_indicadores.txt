@@ -1,0 +1,126 @@
+RELATÓRIO DE INDICADORES · CAMADA OURO
+Período: 2021-01-04 a 2023-12-28 · 12 ativos
+
+======================================================================
+KPIs ESTRATÉGICOS
+======================================================================
+Retorno médio da carteira: 58,4%
+Ativo destaque: PETR4 (228,7%)
+Ativo de menor performance: BBDC4 (-6,9%)
+Volatilidade anualizada média: 33,6% a.a.
+
+Por ano:
+  2021: retorno médio 16,0% | vol. média 37,5% | melhor EMBR3 (196,5%) | pior ITUB4 (-29,8%)
+  2022: retorno médio 12,5% | vol. média 35,1% | melhor PRIO3 (83,4%) | pior EMBR3 (-43,3%)
+  2023: retorno médio 27,2% | vol. média 27,1% | melhor PETR4 (110,4%) | pior GGBR4 (-9,6%)
+
+======================================================================
+P1 · BASE 100 (R$ 100 aplicados no primeiro pregão de 2021)
+======================================================================
+PETR4   Petróleo, Gás e Biocombustíveis   R$ 100 -> R$ 328,69 | acumulado 228,7% | ao ano 49,6%
+PRIO3   Petróleo, Gás e Biocombustíveis   R$ 100 -> R$ 308,32 | acumulado 208,3% | ao ano 46,4%
+EMBR3   Bens Industriais                  R$ 100 -> R$ 267,50 | acumulado 167,5% | ao ano 39,6%
+GGBR4   Materiais Básicos                 R$ 100 -> R$ 130,79 | acumulado 30,8% | ao ano 9,5%
+EGIE3   Utilidade Pública                 R$ 100 -> R$ 125,35 | acumulado 25,3% | ao ano 8,0%
+ITUB4   Financeiro                        R$ 100 -> R$ 124,02 | acumulado 24,0% | ao ano 7,6%
+VALE3   Materiais Básicos                 R$ 100 -> R$ 118,11 | acumulado 18,1% | ao ano 5,8%
+WEGE3   Bens Industriais                  R$ 100 -> R$ 103,51 | acumulado 3,5% | ao ano 1,2%
+ABEV3   Consumo não Cíclico               R$ 100 -> R$ 102,57 | acumulado 2,6% | ao ano 0,9%
+RENT3   Consumo Cíclico                   R$ 100 -> R$ 99,75 | acumulado -0,3% | ao ano -0,1%
+KLBN11  Materiais Básicos                 R$ 100 -> R$ 99,20 | acumulado -0,8% | ao ano -0,3%
+BBDC4   Financeiro                        R$ 100 -> R$ 93,07 | acumulado -6,9% | ao ano -2,4%
+Ativos que terminaram acima de 100: 9 de 12
+
+======================================================================
+P2 · RISCO x RETORNO (Sharpe empírico = retorno anualizado / volatilidade anualizada)
+======================================================================
+PETR4   Sharpe 1,26 | volatilidade 39,4% a.a. | acumulado 228,7% | volume médio R$ 2098,8 mi/dia
+PRIO3   Sharpe 0,99 | volatilidade 46,8% a.a. | acumulado 208,3% | volume médio R$ 451,0 mi/dia
+EMBR3   Sharpe 0,84 | volatilidade 46,8% a.a. | acumulado 167,5% | volume médio R$ 160,8 mi/dia
+EGIE3   Sharpe 0,42 | volatilidade 18,8% a.a. | acumulado 25,3% | volume médio R$ 65,4 mi/dia
+GGBR4   Sharpe 0,27 | volatilidade 35,6% a.a. | acumulado 30,8% | volume médio R$ 344,9 mi/dia
+ITUB4   Sharpe 0,26 | volatilidade 28,8% a.a. | acumulado 24,0% | volume médio R$ 937,1 mi/dia
+VALE3   Sharpe 0,17 | volatilidade 33,9% a.a. | acumulado 18,1% | volume médio R$ 2322,0 mi/dia
+WEGE3   Sharpe 0,04 | volatilidade 32,8% a.a. | acumulado 3,5% | volume médio R$ 293,1 mi/dia
+ABEV3   Sharpe 0,03 | volatilidade 25,5% a.a. | acumulado 2,6% | volume médio R$ 389,1 mi/dia
+RENT3   Sharpe -0,00 | volatilidade 36,9% a.a. | acumulado -0,3% | volume médio R$ 401,7 mi/dia
+KLBN11  Sharpe -0,01 | volatilidade 26,6% a.a. | acumulado -0,8% | volume médio R$ 132,9 mi/dia
+BBDC4   Sharpe -0,08 | volatilidade 31,4% a.a. | acumulado -6,9% | volume médio R$ 824,0 mi/dia
+
+======================================================================
+P3 · RETORNOS DIÁRIOS (dispersão, assimetria e caudas)
+======================================================================
+Assimetria < 0: quedas extremas mais longas que as altas. Curtose > 0: mais dias extremos que a curva normal.
+ITUB4   desvio 1,82% | pior dia -17,96% | melhor dia 8,27% | assimetria -1,11 | curtose 13,49
+BBDC4   desvio 1,98% | pior dia -17,38% | melhor dia 6,91% | assimetria -0,99 | curtose 8,99
+PETR4   desvio 2,48% | pior dia -20,71% | melhor dia 11,03% | assimetria -0,87 | curtose 7,63
+EMBR3   desvio 2,95% | pior dia -14,93% | melhor dia 16,02% | assimetria 0,59 | curtose 4,24
+ABEV3   desvio 1,60% | pior dia -5,70% | melhor dia 9,72% | assimetria 0,53 | curtose 3,46
+WEGE3   desvio 2,07% | pior dia -10,11% | melhor dia 8,36% | assimetria 0,39 | curtose 2,30
+PRIO3   desvio 2,95% | pior dia -10,76% | melhor dia 17,87% | assimetria 0,30 | curtose 2,19
+EGIE3   desvio 1,18% | pior dia -4,75% | melhor dia 5,40% | assimetria 0,03 | curtose 1,61
+VALE3   desvio 2,14% | pior dia -7,59% | melhor dia 10,40% | assimetria 0,40 | curtose 1,51
+RENT3   desvio 2,32% | pior dia -9,39% | melhor dia 9,17% | assimetria 0,18 | curtose 1,29
+KLBN11  desvio 1,68% | pior dia -6,25% | melhor dia 7,56% | assimetria 0,29 | curtose 1,28
+GGBR4   desvio 2,24% | pior dia -7,93% | melhor dia 9,00% | assimetria 0,10 | curtose 0,79
+
+======================================================================
+P4 · DRAWDOWN MÁXIMO (do topo ao vale)
+======================================================================
+EGIE3   -17,7% | topo em 2021-02-12 | vale em 2021-08-05
+ABEV3   -31,4% | topo em 2021-06-07 | vale em 2023-10-27
+GGBR4   -33,9% | topo em 2021-05-11 | vale em 2021-09-21
+PRIO3   -34,3% | topo em 2021-10-14 | vale em 2022-01-05
+ITUB4   -35,9% | topo em 2021-06-16 | vale em 2021-12-30
+RENT3   -38,4% | topo em 2021-01-14 | vale em 2021-10-29
+PETR4   -39,1% | topo em 2022-10-21 | vale em 2022-12-14
+KLBN11  -39,3% | topo em 2021-02-24 | vale em 2022-09-29
+VALE3   -41,3% | topo em 2021-07-28 | vale em 2021-11-18
+BBDC4   -46,0% | topo em 2021-06-07 | vale em 2023-03-23
+WEGE3   -49,5% | topo em 2021-01-18 | vale em 2022-06-17
+EMBR3   -58,3% | topo em 2021-10-14 | vale em 2022-07-11
+
+======================================================================
+P5 · PREÇO x MÉDIAS MÓVEIS (SMA 21 e SMA 50)
+======================================================================
+PETR4   acima da SMA 50 em 72,3% dos pregões | cruzamentos SMA 21 x SMA 50: 17
+PRIO3   acima da SMA 50 em 65,4% dos pregões | cruzamentos SMA 21 x SMA 50: 15
+EMBR3   acima da SMA 50 em 57,8% dos pregões | cruzamentos SMA 21 x SMA 50: 14
+EGIE3   acima da SMA 50 em 56,3% dos pregões | cruzamentos SMA 21 x SMA 50: 23
+ITUB4   acima da SMA 50 em 54,9% dos pregões | cruzamentos SMA 21 x SMA 50: 15
+VALE3   acima da SMA 50 em 54,2% dos pregões | cruzamentos SMA 21 x SMA 50: 12
+RENT3   acima da SMA 50 em 53,7% dos pregões | cruzamentos SMA 21 x SMA 50: 15
+GGBR4   acima da SMA 50 em 53,7% dos pregões | cruzamentos SMA 21 x SMA 50: 20
+BBDC4   acima da SMA 50 em 49,6% dos pregões | cruzamentos SMA 21 x SMA 50: 17
+ABEV3   acima da SMA 50 em 48,9% dos pregões | cruzamentos SMA 21 x SMA 50: 13
+WEGE3   acima da SMA 50 em 48,4% dos pregões | cruzamentos SMA 21 x SMA 50: 13
+KLBN11  acima da SMA 50 em 40,8% dos pregões | cruzamentos SMA 21 x SMA 50: 19
+
+======================================================================
+APOIO · SETORES (média simples dos ativos de cada setor)
+======================================================================
+Petróleo, Gás e Biocombustíveis   retorno 218,5% | volatilidade 43,1% | PETR4, PRIO3
+Bens Industriais                  retorno 85,5% | volatilidade 39,8% | EMBR3, WEGE3
+Utilidade Pública                 retorno 25,3% | volatilidade 18,8% | EGIE3
+Materiais Básicos                 retorno 16,0% | volatilidade 32,0% | GGBR4, KLBN11, VALE3
+Financeiro                        retorno 8,5% | volatilidade 30,1% | BBDC4, ITUB4
+Consumo não Cíclico               retorno 2,6% | volatilidade 25,5% | ABEV3
+Consumo Cíclico                   retorno -0,3% | volatilidade 36,9% | RENT3
+
+======================================================================
+APOIO · CORRELAÇÃO DOS RETORNOS DIÁRIOS (Pearson)
+======================================================================
+Pares mais correlacionados:
+  BBDC4 x ITUB4: 0,77
+  GGBR4 x VALE3: 0,65
+  EGIE3 x RENT3: 0,45
+  BBDC4 x RENT3: 0,45
+  ITUB4 x RENT3: 0,45
+Pares menos correlacionados:
+  ITUB4 x KLBN11: 0,08
+  KLBN11 x PETR4: 0,08
+  ABEV3 x KLBN11: 0,07
+  ABEV3 x VALE3: 0,07
+  EGIE3 x VALE3: 0,06
+
+Correlação não implica causalidade.

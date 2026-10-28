@@ -1,0 +1,13 @@
+cd_ticker,nm_empresa,ds_setor,cd_simbolo_yahoo
+ABEV3,Ambev,Consumo não Cíclico,ABEV3.SA
+BBDC4,Bradesco,Financeiro,BBDC4.SA
+EGIE3,Engie Brasil,Utilidade Pública,EGIE3.SA
+EMBR3,Embraer,Bens Industriais,EMBJ3.SA
+GGBR4,Gerdau,Materiais Básicos,GGBR4.SA
+ITUB4,Itaú Unibanco,Financeiro,ITUB4.SA
+KLBN11,Klabin,Materiais Básicos,KLBN11.SA
+PETR4,Petrobras,"Petróleo, Gás e Biocombustíveis",PETR4.SA
+PRIO3,PRIO,"Petróleo, Gás e Biocombustíveis",PRIO3.SA
+RENT3,Localiza,Consumo Cíclico,RENT3.SA
+VALE3,Vale,Materiais Básicos,VALE3.SA
+WEGE3,WEG,Bens Industriais,WEGE3.SA
