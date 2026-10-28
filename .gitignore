@@ -1,0 +1,16 @@
+# Credenciais
+.streamlit/secrets.toml
+
+# Ambiente virtual
+.venv/
+venv/
+
+# Python e Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Sistema operacional
+Thumbs.db
+desktop.ini
+.DS_Store
