@@ -516,9 +516,11 @@ detalhe.
 1. **Barra lateral (filtros):** escolha setores, ativos e período. A lista de
    ativos se ajusta aos setores escolhidos, e o botão **Limpar filtros** volta
    tudo ao estado inicial.
-2. **Indicadores no topo:** retorno médio, ativo destaque, menor retorno e
-   volatilidade média, cada um com um delta de comparação. O ícone **?** de
-   cada cartão explica o cálculo.
+2. **Indicadores no topo:** retorno médio da carteira, ativo destaque, ativo
+   de menor performance e volatilidade anualizada média. O retorno médio e a
+   volatilidade são comparados com a carteira completa (12 ativos, 2021 a
+   2023), e os ativos destaque e de menor performance, com a média da carteira
+   filtrada. O ícone **?** de cada cartão explica o cálculo.
 3. **Síntese do período selecionado:** as principais conclusões e uma
    orientação de uso, recalculadas a cada filtro.
 4. **Abas de análise:** cada aba responde a uma pergunta de negócio em três
@@ -537,7 +539,7 @@ detalhe.
 | Segurança de credenciais | `.streamlit/secrets.toml` fora do repositório pelo `.gitignore`. No Streamlit Cloud, as credenciais ficam nos Secrets do app |
 | Cache | `@st.cache_data` com `ttl` de 1 hora na consulta ao banco, no cálculo dos indicadores, na correlação e na geração do CSV |
 | Estado e filtros | `st.session_state` guarda os filtros de setor, ativo e período, com botão de reset |
-| KPIs | 4 cartões com `st.columns` e `st.metric`, todos com delta |
+| KPIs | 4 cartões com `st.columns` e `st.metric`, todos com delta de comparação em pontos percentuais |
 | Organização | 7 abas com `st.tabs` |
 | Exportação | `st.download_button` com a base filtrada em CSV (separador `;` e decimal com vírgula) |
 | Visualizações | 6 gráficos em Plotly Express: linha, dispersão, histograma com boxplot, área, multilinha e mapa de calor |
