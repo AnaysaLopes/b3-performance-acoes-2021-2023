@@ -50,7 +50,7 @@ BBDC4   Sharpe -0,08 | volatilidade 31,4% a.a. | acumulado -6,9% | volume médio
 ======================================================================
 P3 · RETORNOS DIÁRIOS (dispersão, assimetria e caudas)
 ======================================================================
-Assimetria < 0: quedas extremas mais longas que as altas. Curtose > 0: mais dias extremos que a curva normal.
+Assimetria < 0: quedas extremas mais intensas que as altas. Curtose > 0: mais dias extremos que a curva normal.
 ITUB4   desvio 1,82% | pior dia -17,96% | melhor dia 8,27% | assimetria -1,11 | curtose 13,49
 BBDC4   desvio 1,98% | pior dia -17,38% | melhor dia 6,91% | assimetria -0,99 | curtose 8,99
 PETR4   desvio 2,48% | pior dia -20,71% | melhor dia 11,03% | assimetria -0,87 | curtose 7,63

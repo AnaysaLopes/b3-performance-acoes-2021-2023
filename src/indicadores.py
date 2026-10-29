@@ -198,7 +198,7 @@ def gerar_relatorio(base, resumo):
               f"acumulado {pct(r['vl_retorno_acumulado'])} | volume médio R$ {num(r['vl_volume_financeiro_medio'] / 1e6, 1)} mi/dia")
 
     titulo("P3 · RETORNOS DIÁRIOS (dispersão, assimetria e caudas)")
-    linha("Assimetria < 0: quedas extremas mais longas que as altas. Curtose > 0: mais dias extremos que a curva normal.")
+    linha("Assimetria < 0: quedas extremas mais intensas que as altas. Curtose > 0: mais dias extremos que a curva normal.")
     for _, r in resumo.sort_values("vl_curtose", ascending=False).iterrows():
         linha(f"{r['cd_ticker']:<7} desvio {pct(r['vl_retorno_diario_desvio'], 2)} | pior dia {pct(r['vl_retorno_diario_min'], 2)} | "
               f"melhor dia {pct(r['vl_retorno_diario_max'], 2)} | assimetria {num(r['vl_assimetria'])} | curtose {num(r['vl_curtose'])}")
