@@ -518,8 +518,8 @@ detalhe.
    tudo ao estado inicial.
 2. **Indicadores no topo:** retorno médio da carteira, ativo destaque, ativo
    de menor performance e volatilidade anualizada média. O retorno médio e a
-   volatilidade são comparados com a carteira completa (12 ativos, 2021 a
-   2023), e os ativos destaque e de menor performance, com a média da carteira
+   volatilidade são comparados com a média dos 12 ativos no mesmo período, e
+   os ativos destaque e de menor performance, com a média da carteira
    filtrada. O ícone **?** de cada cartão explica o cálculo.
 3. **Síntese do período selecionado:** as principais conclusões e uma
    orientação de uso, recalculadas a cada filtro.
