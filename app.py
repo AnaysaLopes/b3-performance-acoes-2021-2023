@@ -226,10 +226,8 @@ setores_sel = st.session_state["filtro_setores"]
 ativos_sel = st.session_state["filtro_ativos"]
 inicio, fim = st.session_state["filtro_periodo"]
 
-df_filtrado = df[
-    df["cd_ticker"].isin(ativos_sel)
-    & df["dt_pregao"].between(pd.Timestamp(inicio), pd.Timestamp(fim))
-]
+df_periodo = df[df["dt_pregao"].between(pd.Timestamp(inicio), pd.Timestamp(fim))]
+df_filtrado = df_periodo[df_periodo["cd_ticker"].isin(ativos_sel)]
 
 # Contexto
 st.title("Performance de ações da B3 · 2021 a 2023")
@@ -258,7 +256,7 @@ if resumo.empty:
 
 recorte = calcular_recorte(df_filtrado)
 kpis = kpis_carteira(resumo)
-kpis_total = kpis_carteira(calcular_resumo(df))
+kpis_total = kpis_carteira(calcular_resumo(df_periodo))
 dif_retorno = pp(kpis["retorno_medio_carteira"] - kpis_total["retorno_medio_carteira"])
 dif_destaque = pp(kpis["retorno_ativo_destaque"] - kpis["retorno_medio_carteira"])
 dif_menor = pp(kpis["retorno_ativo_menor_performance"] - kpis["retorno_medio_carteira"])
@@ -279,11 +277,11 @@ linha2 = st.columns(2)
 linha1[0].metric(
     "Retorno médio da carteira",
     pct(kpis["retorno_medio_carteira"]),
-    delta=f"{texto_pp(dif_retorno)} vs. carteira completa",
+    delta=f"{texto_pp(dif_retorno)} vs. 12 ativos no mesmo período",
     delta_color="off" if dif_retorno == 0 else "normal",
     help="Média do retorno acumulado dos ativos selecionados, como se o mesmo valor "
          "tivesse sido aplicado em cada um no primeiro pregão do período. "
-         "O delta compara com os 12 ativos em 2021 a 2023.",
+         "O delta compara com a média dos 12 ativos no mesmo período.",
     border=True,
 )
 linha1[1].metric(
@@ -309,10 +307,10 @@ linha2[0].metric(
 linha2[1].metric(
     "Volatilidade anualizada média",
     f"{pct(kpis['volatilidade_media'])} a.a.",
-    delta=f"{texto_pp(dif_volatilidade)} vs. carteira completa",
+    delta=f"{texto_pp(dif_volatilidade)} vs. 12 ativos no mesmo período",
     delta_color="off" if dif_volatilidade == 0 else "inverse",
     help="Média do desvio padrão dos retornos diários, anualizado (x √252). "
-         "O delta compara com os 12 ativos em 2021 a 2023: verde indica risco menor.",
+         "O delta compara com a média dos 12 ativos no mesmo período: verde indica risco menor.",
     border=True,
 )
 
