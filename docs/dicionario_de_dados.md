@@ -41,7 +41,7 @@ Dado exatamente como veio do yfinance, com três colunas de identificação.
 | `Open` | `float64` | Preço de abertura (R$) |
 | `High` | `float64` | Preço máximo do dia (R$) |
 | `Low` | `float64` | Preço mínimo do dia (R$) |
-| `Close` | `float64` | Preço de fechamento sem ajuste (R$) |
+| `Close` | `float64` | Preço de fechamento ajustado por desdobramentos e bonificações, sem proventos (R$) |
 | `Adj Close` | `float64` | Fechamento ajustado por proventos e desdobramentos (R$) |
 | `Volume` | `int64` | Quantidade de ações negociadas |
 | `Dividends` | `float64` | Provento pago por ação na data (R$) |
@@ -63,7 +63,7 @@ Uma linha por ativo por pregão. Mesmas 8.940 linhas da Bronze, sem perda.
 | `vl_abertura` | `float64` | Primeiro preço do dia (R$) | Convertido para número decimal |
 | `vl_maxima` | `float64` | Maior preço do dia (R$) | Convertido para número decimal |
 | `vl_minima` | `float64` | Menor preço do dia (R$) | Convertido para número decimal |
-| `vl_fechamento` | `float64` | Último preço do dia, sem ajuste (R$) | Convertido para número decimal |
+| `vl_fechamento` | `float64` | Último preço do dia, ajustado por desdobramentos e bonificações, sem proventos (R$) | Convertido para número decimal |
 | `vl_fechamento_ajustado` | `float64` | Fechamento corrigido por dividendos, JCP e desdobramentos (R$). Base de todos os indicadores | Convertido para número decimal |
 | `qt_volume_acoes` | `Int64` | Ações negociadas no dia | Convertido para número inteiro |
 | `vl_volume_financeiro` | `Float64` | Valor negociado no dia, estimado (R$) | `vl_fechamento × qt_volume_acoes` |
@@ -99,7 +99,7 @@ Chave primária: `cd_ticker` + `dt_pregao`. Liga-se à `dim_ativos` pelo `cd_tic
 | `vl_abertura` | `float64` | `DOUBLE PRECISION` | Primeiro preço do dia (R$) | Da Prata |
 | `vl_maxima` | `float64` | `DOUBLE PRECISION` | Maior preço do dia (R$) | Da Prata |
 | `vl_minima` | `float64` | `DOUBLE PRECISION` | Menor preço do dia (R$) | Da Prata |
-| `vl_fechamento` | `float64` | `DOUBLE PRECISION` | Último preço do dia, sem ajuste (R$) | Da Prata |
+| `vl_fechamento` | `float64` | `DOUBLE PRECISION` | Último preço do dia, ajustado por desdobramentos e bonificações, sem proventos (R$) | Da Prata |
 | `vl_fechamento_ajustado` | `float64` | `DOUBLE PRECISION` | Fechamento ajustado (R$) | Da Prata |
 | `qt_volume_acoes` | `int64` | `BIGINT` | Ações negociadas no dia | Da Prata |
 | `vl_volume_financeiro` | `float64` | `DOUBLE PRECISION` | Valor negociado no dia, estimado (R$) | Da Prata |
@@ -128,7 +128,7 @@ Gravado em `data/ouro/`. No app, este resumo é recalculado a cada filtro.
 | `dt_topo_antes_drawdown`, `dt_vale_drawdown` | `datetime64` | Início e fim da maior queda | Datas do topo e do vale |
 | `vl_retorno_diario_medio`, `vl_retorno_diario_desvio` | `float64` | Média e dispersão dos retornos diários | Média e desvio padrão |
 | `vl_retorno_diario_min`, `vl_retorno_diario_max` | `float64` | Pior e melhor pregão | Mínimo e máximo |
-| `vl_assimetria` | `float64` | Lado das oscilações extremas (negativa = quedas fortes mais comuns) | `skew()` |
+| `vl_assimetria` | `float64` | Lado das oscilações extremas (negativa = quedas extremas mais intensas que as altas) | `skew()` |
 | `vl_curtose` | `float64` | Peso das caudas (acima de 0 = mais dias extremos que a curva normal) | `kurt()`, curtose em excesso |
 | `vl_volume_financeiro_medio` | `float64` | Liquidez média diária (R$) | Média do volume financeiro |
 | `pc_pregoes_acima_sma50` | `float64` | Fração dos pregões com preço acima da SMA 50 | Só dias em que a SMA 50 existe |

@@ -23,12 +23,15 @@ def baixar_ativo(simbolo):
     """Baixa o histórico diário de um símbolo, com até três tentativas."""
     for tentativa in range(1, MAX_TENTATIVAS + 1):
         try:
-            return yf.Ticker(simbolo).history(
+            df = yf.Ticker(simbolo).history(
                 start=config.DATA_INICIO,
                 end=config.DATA_FIM_YFINANCE,
                 interval="1d",
                 auto_adjust=False,
             )
+            if not df.empty:
+                return df
+            raise ValueError("retorno vazio")
         except Exception as erro:
             espera = PAUSA_SEGUNDOS * tentativa * 2
             print(f"   Tentativa {tentativa} falhou ({erro}). Nova tentativa em {espera}s...")
