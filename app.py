@@ -28,9 +28,6 @@ ESTILO = """
 h1, h2, h3, h4, [data-testid="stHeading"] * { color: #5E35B1 !important; }
 h1 { font-weight: 700; }
 [data-testid="stWidgetLabel"] p { color: #5E35B1; font-weight: 600; font-size: 0.95rem; }
-[data-baseweb="tag"] { background-color: #E4DAF5 !important; }
-[data-baseweb="tag"] span { color: #311B92 !important; font-weight: 500; }
-[data-baseweb="tag"] svg { fill: #4527A0 !important; }
 [data-testid="stMetric"] { background-color: #FBF9FE; text-align: center; }
 [data-testid="stMetricLabel"], [data-testid="stMetricValue"], [data-testid="stMetricDelta"] {
     display: flex; justify-content: center; width: 100%;
@@ -241,6 +238,10 @@ else:
 
 if df_filtrado.empty:
     st.info("Nenhum dado para os filtros escolhidos. Selecione ao menos um ativo na barra lateral.")
+    st.stop()
+
+if (fim - inicio).days < 90:
+    st.info("Escolha um período de pelo menos 3 meses para que os indicadores anualizados façam sentido.")
     st.stop()
 
 st.markdown(
@@ -635,7 +636,7 @@ with aba_correlacao:
             st.caption("Os cinco pares mais e os cinco menos correlacionados.")
 
 with aba_dados:
-    st.write(f"{len(df_filtrado)} registros de {qtd(df_filtrado['cd_ticker'].nunique(), 'ativo', 'ativos')}, "
+    st.write(f"{num(len(df_filtrado), 0)} registros de {qtd(df_filtrado['cd_ticker'].nunique(), 'ativo', 'ativos')}, "
              "com os filtros aplicados.")
     sinais = ["fg_volume_zero", "fg_variacao_extrema"]
     tela = df_filtrado.assign(vl_retorno_diario=df_filtrado["vl_retorno_diario"] * 100)
