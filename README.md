@@ -186,8 +186,9 @@ registra cada uma em
 Uma decisão importante foi **não apagar nem preencher** registros atípicos. Os
 3 pregões com volume zero (BBDC4 em 02/06/2023, PRIO3 e WEGE3 em 26/09/2022)
 repetem o preço do dia anterior, um padrão típico de falha de registro na
-fonte. As 6 variações acima de 15% são movimentos reais de mercado e fazem
-parte do risco que o projeto mede. Os dois casos ficaram na base, marcados nas
+fonte. Das 6 variações acima de 15%, cinco são movimentos de mercado e fazem
+parte do risco que o projeto mede, e uma (ITUB4, 04/10/2021) é efeito da cisão
+com a XP, explicada na seção 8. Os dois casos ficaram na base, marcados nas
 colunas `fg_volume_zero` e `fg_variacao_extrema`, e foram documentados como
 limitação.
 
@@ -261,7 +262,7 @@ Principais colunas da tabela fato e da dimensão, usadas pelo Data App:
 | `vl_abertura` | `float64` / `DOUBLE PRECISION` | Primeiro preço do dia (R$) |
 | `vl_maxima` | `float64` / `DOUBLE PRECISION` | Maior preço do dia (R$) |
 | `vl_minima` | `float64` / `DOUBLE PRECISION` | Menor preço do dia (R$) |
-| `vl_fechamento` | `float64` / `DOUBLE PRECISION` | Último preço do dia, sem ajuste (R$) |
+| `vl_fechamento` | `float64` / `DOUBLE PRECISION` | Último preço do dia, ajustado por desdobramentos e bonificações, sem proventos (R$) |
 | `vl_fechamento_ajustado` | `float64` / `DOUBLE PRECISION` | Fechamento corrigido por dividendos, JCP e desdobramentos (R$). Base de todos os indicadores |
 | `qt_volume_acoes` | `int64` / `BIGINT` | Quantidade de ações negociadas no dia |
 | `vl_volume_financeiro` | `float64` / `DOUBLE PRECISION` | Valor negociado no dia, estimado por fechamento x volume (R$) |
@@ -288,7 +289,7 @@ ativo e as regras de cálculo de cada indicador, está em
 | SQLAlchemy e psycopg2 | Conexão do Python com o PostgreSQL | Usados tanto na carga quanto pelo `st.connection` do Streamlit |
 | SQL | Criação das tabelas e consultas de validação | Conferir a carga direto no banco, sem depender do Python |
 | Streamlit | Data App | Transforma scripts Python em app web com filtros, cache e abas |
-| Plotly Express | Gráficos do app e do notebook | Gráficos interativos com zoom, legenda clicável e tooltip |
+| Plotly Express | Gráficos do app e do notebook | Gráficos interativos com zoom, legenda clicável e tooltip. No notebook, o Kaleido salva também uma imagem de cada gráfico, para que ele apareça no GitHub |
 | Jupyter Notebook | Análise exploratória | Junta código, gráficos e explicação no mesmo documento |
 | Streamlit Community Cloud | Publicação do app | Deploy gratuito integrado ao GitHub |
 | Git e GitHub | Versionamento | Histórico por funcionalidade, com branches e pull requests |
@@ -422,6 +423,9 @@ que o movimento de um causou o do outro.
 | 2022 | 12,5% | 35,1% a.a. | PRIO3 (+83,4%) | EMBR3 (-43,3%) |
 | 2023 | 27,2% | 27,1% a.a. | PETR4 (+110,4%) | GGBR4 (-9,6%) |
 
+O retorno de cada ano é medido do fechamento do primeiro ao último pregão do
+ano, o mesmo cálculo que o app faz ao filtrar um ano.
+
 O ranking muda bastante de um ano para outro. A EMBR3 foi a melhor de 2021 e a
 pior de 2022. Em 2023, a carteira teve o maior retorno médio com a menor
 volatilidade dos três anos.
@@ -462,6 +466,9 @@ volatilidade dos três anos.
   ativo, sem rebalanceamento, corretagem ou impostos.
 - **Mudança de código.** O histórico da Embraer vem do código atual (EMBJ3),
   como explicado na seção 3.
+- **Período mínimo no app.** Retorno e volatilidade anualizados exigem uma
+  janela razoável de pregões. Com poucos dias, a anualização gera valores
+  extremos, por isso o app pede um período de pelo menos 3 meses.
 
 ---
 
@@ -601,6 +608,9 @@ originais, porque a fonte revisa o fechamento ajustado quando há novos
 proventos. Os arquivos versionados em `data/` são os usados em todas as
 análises deste README.
 
+Para rodar o notebook do início, o Kaleido precisa do Google Chrome instalado.
+Se ele não estiver no computador, rode `plotly_get_chrome` uma vez.
+
 ---
 
 ## 12. Estrutura de pastas
@@ -669,6 +679,9 @@ poucos arquivos por commit. A `main` recebe as versões estáveis.
 | `feature/analise-exploratoria` | notebook de análise exploratória |
 | `feature/data-app` | Data App e tema visual |
 | `feature/documentacao` | README, perguntas de negócio e capturas |
+| `feature/ajustes-finais` | deltas de comparação dos KPIs, versões fixas das dependências e documentação alinhada |
+| `feature/revisao-final` | comparação dos KPIs no mesmo período do filtro e notebook reexecutado |
+| `feature/correcoes-revisao` | período mínimo no app, notebook com gráficos visíveis no GitHub e correções de texto |
 
 | Link | Endereço |
 |------|----------|
